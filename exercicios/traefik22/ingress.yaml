@@ -9,10 +9,13 @@ metadata:
     traefik.ingress.kubernetes.io/router.tls.certresolver: default
 spec:
   rules:
-    - host: traefik.rancher.dev-ops-ninja.com
+    - host: traefik.rancher.brunostel.click
       http:
-        paths:
-          - backend:
-              serviceName: traefik-daemon-set
-              servicePort: 80
-
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: traefik-daemon-set
+            port:
+              number: 80
