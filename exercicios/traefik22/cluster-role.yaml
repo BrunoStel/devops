@@ -15,9 +15,11 @@ rules:
       - list
       - watch
   - apiGroups:
-      - extensions
+       - extensions
+       - networking.k8s.io
     resources:
-      - ingresses
+       - ingresses
+       - ingressclasses
     verbs:
       - get
       - list
