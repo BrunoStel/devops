@@ -1,6 +1,6 @@
 ---
-kind: Ingress
 apiVersion: networking.k8s.io/v1
+kind: Ingress
 metadata:
   name: traefik-daemon-set
   annotations:
@@ -9,13 +9,13 @@ metadata:
     traefik.ingress.kubernetes.io/router.tls.certresolver: default
 spec:
   rules:
-    - host: traefik.rancher.brunostel.click
-      http:
+  - host: traefik.rancher.brunostel.click
+    http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: traefik-daemon-set
+            name: traefik-web-ui
             port:
               number: 80
