@@ -22,7 +22,10 @@ spec:
   - host: traefik.rancher.brunostel.click
     http:
       paths:
-      - path: /
+       - path: /
+        pathType: Prefix
         backend:
-          serviceName: traefik-web-ui
-          servicePort: web
+          service:
+            name: traefik-web-ui
+            port:
+              number: 80
